@@ -1,0 +1,8 @@
+artifacts_root: artifacts
+
+data ingestion:
+  root_dir: artifacts/data_ingestion
+  source_url: https://github.com/sujeetkumaryadavlearner/Diamond_price_Pred/blob/main/data/raw/diamonds%20.csv
+  ingested_data_dir: artifacts/data_ingestion/data_ingested
+  
+ 
