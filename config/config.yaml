@@ -1,8 +1,24 @@
-artifacts_root: artifacts
+artifacts_root: artifact
 
 data ingestion:
-  root_dir: artifacts/data_ingestion
+  root_dir: artifact/data_ingestion
   source_url: https://github.com/sujeetkumaryadavlearner/Diamond_price_Pred/blob/main/data/raw/diamonds%20.csv
-  ingested_data_dir: artifacts/data_ingestion/data_ingested
+  ingested_data_dir: artifact/data_ingestion/data_ingested
   
- 
+
+data_validation:
+  root_dir: artifact/data_validation
+  data_dir: artifact/data_ingestion/diamond.csv
+  status_file: artifact/data_validation/status.txt
+
+data_transformation:
+  root_dir: artifact/data_transformation
+  data_dir: artifact/data_ingestion/diamond.csv
+
+model_training:
+  root_dir: artifact/model_training
+  X_data_train_dir: artifact/data_transformation/X_train.csv  
+  Y_data_train_dir: artifact/data_transformation/Y_train.csv
+  X_data_test_dir: artifact/data_transformation/X_test.csv
+  Y_data_test_dir: artifact/data_transformation/Y_test.csv
+  model_name: model.joblib
