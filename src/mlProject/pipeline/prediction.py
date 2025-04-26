@@ -9,6 +9,7 @@ class PredictionPipeline:
         self.model=joblib.load(Path('artifact\model_training\model.joblib'))
 
     def predict(self, data):
-        predictions = self.model.predict(data)
+        data_df = pd.DataFrame(data, columns=["carat", "cut", "color", "clarity", "depth", "table", "x", "y", "z"])
+        predictions = self.model.predict(data_df)
         return predictions
-    
+
