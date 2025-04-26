@@ -22,3 +22,12 @@ model_training:
   X_data_test_dir: artifact/data_transformation/X_test.csv
   Y_data_test_dir: artifact/data_transformation/Y_test.csv
   model_name: model.joblib
+
+model_evaluation:
+  root_dir: artifact/model_evaluation
+  X_data_train_dir: artifact/data_transformation/X_train.csv  
+  Y_data_train_dir: artifact/data_transformation/Y_train.csv
+  X_data_test_dir: artifact/data_transformation/X_test.csv
+  Y_data_test_dir: artifact/data_transformation/Y_test.csv  
+  report_dir: artifact/model_evaluation/report.txt
+  model_dir: artifact/model_training/model.joblib

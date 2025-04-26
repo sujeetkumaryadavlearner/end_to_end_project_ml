@@ -1,6 +1,9 @@
 from mlProject.constants import *
 from mlProject.utils.common import read_yaml , create_directories
-from mlProject.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTransformationConfig,ModelTrainingConfig
+from mlProject.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTransformationConfig,ModelTrainingConfig,ModelEvaluationConfig
+from mlProject.constants import *
+import logging
+
 
 class ConfigurationManager:
     def __init__(self, config_file_path= CONFIG_FILE_PATH ,params_filepath=PARAMS_FILE_PATH,schema_filepath=SCHEMA_FILE_PATH):
@@ -55,3 +58,18 @@ class ConfigurationManager:
             min_samples_leaf=param.min_samples_leaf
         )
         return model_config
+    
+    def get_evaluation_config(self)->ModelEvaluationConfig:
+        config=self.config.model_evaluation
+        create_directories([config.root_dir])
+
+        model_evaluation_config = ModelEvaluationConfig(
+        root_dir=config.root_dir,
+        X_data_train_dir=config.X_data_train_dir,  
+        Y_data_train_dir=config.Y_data_train_dir,
+        X_data_test_dir=config.X_data_test_dir,
+        Y_data_test_dir=config.Y_data_test_dir, 
+        report_dir=config.report_dir,
+        model_dir=config.model_dir
+        )
+        return model_evaluation_config

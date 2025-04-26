@@ -32,8 +32,8 @@ class DataTranformation:
         df.drop(columns=["Unnamed: 0"], inplace=True)
         df.dropna(inplace=True)
         df.reset_index(drop=True, inplace=True)
-        X= df[["price"]]
-        Y =df.drop(columns=["price"])
+        Y= df[["price"]]
+        X =df.drop(columns=["price"])
         X_train,X_test,Y_train,Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
         X_train.to_csv(os.path.join(self.config.root_dir ,"X_train.csv"), index=False)
         X_test.to_csv(os.path.join(self.config.root_dir , "X_test.csv"), index=False) 

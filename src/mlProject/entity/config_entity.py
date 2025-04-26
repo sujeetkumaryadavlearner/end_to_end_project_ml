@@ -30,4 +30,14 @@ class ModelTrainingConfig:
     model_name: str
     max_depth: int
     min_samples_leaf: int
+
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    root_dir: Path
+    X_data_train_dir: Path
+    Y_data_train_dir: Path
+    X_data_test_dir: Path
+    Y_data_test_dir:Path
+    report_dir: Path
+    model_dir: Path
     
