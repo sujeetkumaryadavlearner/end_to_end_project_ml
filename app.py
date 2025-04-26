@@ -7,7 +7,7 @@ app=Flask(__name__)
 
 
 @app.route('/')
-def home_page():
+def home_pagge():
     return render_template('index.html')
 
 @app.route('/train', methods=['GET'])
